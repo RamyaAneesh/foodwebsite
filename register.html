@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body   
+            {  
+              height: 125vh;  
+              margin-top: 100px;  
+              padding: 80px;  
+              background-size: cover;  
+              font-family: sans-serif;
+            }
+        header {  
+            background-color:white;  
+            position: fixed;  
+            left: 0;  
+            right: 0;  
+            top: 5px;  
+            height: 50px;  
+            display: flex;  
+            align-items: center; 
+            padding: 80px;     
+              }
+              header * {  
+                 display: inline;  
+                       }  
+               header li{  
+                  padding-left: 60px;
+                  margin: 20px; 
+                  font-weight: bold; 
+                  color: blue; 
+                  text-decoration: none;
+                  text-decoration-line: none;
+                  
+                       }  
+                       .iconAndname img
+                   {
+                    width: 40px;
+                    height: 40px;
+                   
+                
+                   }          
+    
+       </style>
+   
+</head>
+<body>
+    <header style="background-color: aqua;">
+        <div class="iconAndname">
+            <img src="projectimage/icon.jpg" >
+           <h3 style=" color: rgb(165, 61, 42); font:italic;size:50px;">Food Frame</h3>
+          
+        </div>
+  
+        <br>
+        <nav>
+        <ul>
+            <li><a href="home.html" >Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <input type="text" placeholder="Search...." style="height:40px;width:250px;"id="search">
+            <i class="bi bi-search" id="searchsymbol" onclick="SearchMenu()"></i>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="Register.html">Register Now</a></li>
+          
+          </ul>
+        </nav>
+    </header> 
+       
+    <script>
+      function SearchMenu()
+      {
+          const search = document.getElementById("search").value;
+           if(search=="Caribbean"||search=="burger"||search=="American Classic Zinger"||search=="Caribbean Spicy Zinger Burger"
+            ||search=="Veg Rice"||search=="Popcorn Chicken"||search=="biriyani"||search==">Plain Rice"||search=="Chicken Roll"
+            ||search=="veg roll"||search=="Chicken Biriyani"||search=="Hyderabadi Dum Biriyani"||search=="Pizza"||search=="Porotta"
+            ||search=="beef")
+           {
+               window.location.href="menu.html";
+            }
+            else{
+              alert("Sorry for the inconvenience, The item you searched is currently not available, Search for other Item, GOOd LUCK!")
+            }    
+      }   
+    </script>
+
+
+    <div class="card border-success mb-3" style="max-width: 50rem;height: 30rem;">
+        <div class="card-header bg-transparent border-success" style="font-size: 30px;color:red;font-style: italic; font-weight: bold;">SIGN UP</div>
+        <div class="card-body text-success">
+          
+      <p class="card-text" style="padding-left:100px">
+        <input type="text" placeholder="Name" style="padding-left:200px" id="name">   
+        <span id="name-error" class="error-message"></span><br><br>
+     
+
+        <input type="number" placeholder="Phone Number" style="padding-left:200px" id="phone">
+        <span id="phone-error" class="error-message"></span><br><br>
+        
+        
+        <input type="email" placeholder="Email" style="padding-left:200px" id="email">
+        <span id="email-error" class="error-message"></span><br><br>
+       
+        
+        <input type="text" placeholder="User Name" style="padding-left:200px" id="username">
+        <span id="username-error" class="error-message"></span><br><br>
+       
+       
+        <input type="password" placeholder="Password" style="padding-left:200px" id="password">
+        <span id="password-error" class="error-message"></span><br><br>
+     
+      
+        <input type="password" placeholder="Retype Password" style="padding-left:200px" id="retypepass">
+        <span id="retypepass-error" class="error-message"></span><br><br>
+       
+      </div>
+        <div class="card-footer bg-transparent border-success">
+          <button style="background-color: orangered;color: white;" onclick="javascript:ValidateRegistration()">Register</button></div>
+      </div>
+<!-- function for validating Registration form -->
+      <script>
+         function clearInputField() 
+            {
+           
+            window.alert("Thank You! We will Get back you soon..Have a nice Day...");
+            document.getElementById('myForm').reset();
+
+            }
+        function ValidateRegistration()
+         {
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const retypepass = document.getElementById("retypepass").value;
+
+            const nameErr = document.getElementById("name-error");
+            const phoneErr = document.getElementById("phone-error");
+            const emailErr = document.getElementById("email-error");
+            const usernameErr = document.getElementById("username-error");
+            const passwordErr = document.getElementById("password-error");
+            const retypepassErr = document.getElementById("retypepass-error");
+
+            nameErr.textContent = "";
+            phoneErr.textContent = "";
+            emailErr.textContent = "";
+            usernameErr.textContent = "";
+            passwordErr.textContent = "";
+            retypepassErr.textContent = "";
+
+            let isValid = true;
+            if (name === "" || /\d/.test(name)) {
+                nameErr.textContent = "Please enter your name properly.";
+                isValid = false;
+            }
+            if (phone=== "" || phone.length>10 || phone.length<10  ) {
+                phoneErr.textContent = "Please enter your valid mobile number with 10 digits";
+                isValid = false;
+            }
+            if (email === "" || !email.includes("@") || !email.includes(".")) {
+                emailErr.textContent = "Please enter a valid email address.";
+                isValid = false;
+            }
+            if (username === "" ) {
+                usernameErr.textContent = "Please enter User name properly.";
+                isValid = false;
+            }
+            if (password === "" || password.length < 8) {
+                passwordErr.textContent = "Please enter a password with at least 8 characters.";
+                isValid = false;
+            }
+            if (retypepass === ""|| retypepass!=password) {
+                retypepassErr.textContent = "Password doesn't match.";
+                isValid = false;
+            }
+            
+            
+            if (isValid) {
+                alert("Form submitted successfully!");
+             window.location.href="login.html";
+                return true;
+            } else {
+                return false; 
+            }
+        }
+
+        function resetErrors() {
+            document.getElementById("name-error").textContent = "";
+            document.getElementById("phone-error").textContent = "";
+            document.getElementById("email-error").textContent = "";
+            document.getElementById("username-error").textContent = "";
+            document.getElementById("password-error").textContent = "";
+            document.getElementById("retypepass-error").textContent = "";
+        }
+    </script>
+
+
+
+      <br><br><br>   <br><br><br>   <br><br><br>   <br><br><br>   <br><br><br>
+      <!-- FOOTER -->
+       <footer style="background-color: aqua;">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+         <div class="card-body">
+              <h5 class="card-title" style="font-size: 20px;color: orangered;font-style: italic;font-weight: bold;">CONTACT US</h5><br> 
+              <p class="card-text"><br><i class="bi bi-geo-alt-fill">kottachery, Kanhangad</i><br><i class="bi bi-telephone-plus-fill">+91-9847568524
+              </i><br><i class="bi bi-envelope-at-fill">foodframe@gmail.com</i><br></p>
+         </div><br>
+            <div class="card-footer">
+                    <small class="text-body-secondary">  <div class="card-footer" >
+                    <small class="text-body-secondary"style="font-weight:bold">Special Links<br>
+                    <i class="bi bi-facebook" style="padding: 10px;"></i><i class="bi bi-messenger" style="padding: 10px;"></i> <i class="bi bi-instagram" style="padding: 10px;"></i><i class="bi bi-linkedin" style="padding: 10px;"></i>
+                    <i class="bi bi-twitter"></i></small>
+              </div></small>
+            </div>
+          </div>
+        
+        <div class="col">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 20px;color: orangered;font-style: italic;font-weight: bold;">LINKS</h5><br>
+              <p class="card-text">
+                <a href="feedback.html">Feed Back</a><br><a href="order.html">Order</a><br><a href="login.html">Login</a><br>
+                <a href="register.html">Register</a><br><a href="home.html">Home</a><br><a href="about.html">About Us</a><br>
+                <a href="menu.html">Menu</a><br></p>
+            </div>
+          </div>
+        
+        <div class="col">
+         <div class="card-body">
+              <h5 class="card-title" style="font-size: 20px;color: orangered;font-style: italic;font-weight: bold;" >MESSAGE US<br></h5><br>
+              <p class="card-text" ><input type="email"placeholder="Enter Your Email Id">
+               <br><br> <input type="text"placeholder="Your Message" style="height:80px;"> </p>
+            </div><br>
+            <div class="card-footer">
+              <small class="text-body-secondary">  <div class="card-footer" >
+              <small class="text-body-secondary">
+                <button style="font-size: 15px;color: orangered;font-style: italic;font-weight: bold;"onclick="clearInputField()">SUBMIT</button>
+              </small>
+        </div></small>
+          </div>
+        </div>
+        
+        <div class="col">
+          <BR><BR>
+               <p class="card-text" style="font-size: 20px;color: orangered;font-style: italic;font-weight: bold;" >
+                For better experience, Download the FoodFrame app now <br><br>
+                <a href="https://play.google.com/store/apps/details?id=com.foodsome&hl=en">
+
+                  <img src="projectimage/playstore.jpeg" style="width:100px;height:30px;"></a>
+                  <a href="https://apps.apple.com/us/app/apple-store/id375380948">
+                     <img src="projectimage/applestore.jpeg" style="width:100px;height:30px;padding-left: 10px;"></a></p>
+             </div><br>
+             
+           </div>
+         </div>
+      </div>     
+    </footer>
+      <br><br><br>
+</body>
+</html>
